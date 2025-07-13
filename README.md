@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MLev Costume Gallery
+
+A modern, responsive web application showcasing MLev's costume collection. Built with Next.js 14+, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🖼️ Dynamic image gallery with categories
+- 📱 Fully responsive design
+- 🔍 Interactive image modal viewer
+- ⚡ Fast image loading with Next.js Image optimization
+- 🎨 Modern UI with Tailwind CSS
+- 🌍 Prepared for internationalization
+- ♿ Accessibility-focused development
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.17 or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/BenGu2/m-lev.git
+cd m-lev
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create an `images` folder in the `public` directory and add your costume images in category subfolders:
+```
+public/
+  images/
+    Fairy tales/
+    Huge Dolls/
+    Military/
+    Periodic/
+    Studio/
+    Vintage/
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  ├── app/                    # Next.js 14 app directory
+  │   ├── gallery/           # Gallery pages
+  │   │   ├── [category]/    # Dynamic category routes
+  │   │   └── page.tsx       # Gallery home page
+  │   └── ...                # Other pages
+  ├── components/            # Reusable React components
+  │   ├── Header.tsx
+  │   ├── Footer.tsx
+  │   ├── ImageModal.tsx
+  │   └── ...
+  └── constants/            # Constant data and configurations
+      └── galleryData.ts    # Gallery categories and image data
+```
 
-## Learn More
+## Main Features Implementation
 
-To learn more about Next.js, take a look at the following resources:
+### Gallery Categories
+- Categories are defined in `src/constants/galleryData.ts`
+- Each category has its own route under `/gallery/[category]`
+- Images are loaded dynamically from the filesystem
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Image Modal
+- Responsive image viewer
+- Click anywhere outside the image to close
+- ESC key support
+- Smooth animations
+- Maintains image aspect ratio
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Development
 
-## Deploy on Vercel
+### Adding New Categories
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Add images to a new folder in `public/images/`
+2. Update `galleryData.ts` with the new category information:
+```typescript
+{
+  id: 'category-id',
+  name: 'Category Name',
+  slug: 'category-id',
+  folder: 'Folder Name',
+  description: 'Category description',
+  coverImage: 'cover.jpg'
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Modifying Styles
+
+The project uses Tailwind CSS for styling. Main configuration is in:
+- `tailwind.config.ts` - Tailwind configuration
+- Individual component files - Component-specific styles
+
+## License
+
+This project is private and proprietary. All rights reserved.
+
+## Contact
+
+For any inquiries about this project, please reach out to [contact information].

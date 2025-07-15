@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 type Direction = 'ltr' | 'rtl';
 type Language = 'en' | 'he';
@@ -12,19 +12,23 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  direction: 'ltr',
-  language: 'en',
+  direction: 'rtl',
+  language: 'he',
   toggleLanguage: () => {},
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('he');
+  const direction: Direction = language === 'en' ? 'ltr' : 'rtl';
+
+  useEffect(() => {
+    document.documentElement.dir = direction;
+    document.documentElement.lang = language;
+  }, [direction, language]);
 
   const toggleLanguage = () => {
     setLanguage(prev => prev === 'en' ? 'he' : 'en');
   };
-
-  const direction: Direction = language === 'en' ? 'ltr' : 'rtl';
 
   return (
     <LanguageContext.Provider value={{ direction, language, toggleLanguage }}>

@@ -1,12 +1,18 @@
+'use client';
+import { useLanguage } from '@/components/LanguageProvider';
+import { translations } from '@/constants/translations';
+
 export default function AboutPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <>
       {/* Page Title and Intro */}
       <section className="py-12">
-        <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
+        <h1 className="text-4xl font-bold text-center mb-6">{t.about.title}</h1>
         <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-          For over three decades, we've been bringing stories to life through costumes,
-          serving theater productions, film sets, and special events across the country.
+          {t.about.intro}
         </p>
       </section>
 
@@ -16,15 +22,12 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="h-96 bg-gray-200 rounded-lg"></div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
+              <h2 className="text-3xl font-bold mb-6">{t.about.story.title}</h2>
               <p className="text-gray-600 mb-4">
-                Founded in 1990 by costume designer Sarah Cohen, our journey began
-                in a small workshop with just 100 costumes. Today, we've grown into
-                one of the country's leading costume houses.
+                {t.about.story.text1}
               </p>
               <p className="text-gray-600">
-                Our commitment to quality and attention to detail has made us the
-                go-to choice for major productions and events nationwide.
+                {t.about.story.text2}
               </p>
             </div>
           </div>
@@ -34,14 +37,9 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Journey</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{t.about.journey.title}</h2>
           <div className="space-y-12">
-            {[
-              { year: '1990', title: 'Our Beginning', text: 'Started with a small workshop' },
-              { year: '2000', title: 'Major Expansion', text: 'Opened our first large warehouse' },
-              { year: '2010', title: 'Digital Evolution', text: 'Launched online catalog' },
-              { year: '2020', title: 'New Chapter', text: 'Opened state-of-the-art studio' }
-            ].map((milestone) => (
+            {t.about.journey.milestones.map((milestone) => (
               <div key={milestone.year} className="flex gap-6">
                 <div className="font-bold text-2xl text-gray-400">{milestone.year}</div>
                 <div>

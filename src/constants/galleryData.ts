@@ -1,10 +1,22 @@
+export type CategoryId = 'fairy-tales' | 'huge-dolls' | 'military' | 'periodic' | 'vintage' | 'studio';
+
 export interface Category {
-  id: string;
+  id: CategoryId;
   name: string;
   slug: string;
   folder: string;
   description: string;
   coverImage: string;
+}
+
+export interface CategoryTranslation {
+  name: string;
+  description: string;
+}
+
+export interface CategoryTranslations {
+  en: Record<CategoryId, CategoryTranslation>;
+  he: Record<CategoryId, CategoryTranslation>;
 }
 
 export interface GalleryImage {
@@ -13,53 +25,108 @@ export interface GalleryImage {
   alt: string;
 }
 
+export const categoryTranslations: CategoryTranslations = {
+  en: {
+    'fairy-tales': {
+      name: 'Fairy Tales',
+      description: 'Enchanting costumes from beloved fairy tales'
+    },
+    'huge-dolls': {
+      name: 'Huge Dolls',
+      description: 'Larger than life costume creations'
+    },
+    'military': {
+      name: 'Military',
+      description: 'Historical military and uniform costumes'
+    },
+    'periodic': {
+      name: 'Periodic',
+      description: 'Historical period costume collection'
+    },
+    'vintage': {
+      name: 'Vintage',
+      description: 'Classic vintage costume designs'
+    },
+    'studio': {
+      name: 'Studio',
+      description: 'Professional studio costume collection'
+    }
+  },
+  he: {
+    'fairy-tales': {
+      name: 'אגדות',
+      description: 'תלבושות מקסימות מאגדות אהובות'
+    },
+    'huge-dolls': {
+      name: 'בובות ענק',
+      description: 'יצירות תלבושות גדולות מהחיים'
+    },
+    'military': {
+      name: 'צבאי',
+      description: 'תלבושות צבאיות ומדים היסטוריים'
+    },
+    'periodic': {
+      name: 'תקופתי',
+      description: 'אוסף תלבושות היסטוריות'
+    },
+    'vintage': {
+      name: 'וינטאג׳',
+      description: 'עיצובי תלבושות קלאסיות'
+    },
+    'studio': {
+      name: 'סטודיו',
+      description: 'אוסף תלבושות מקצועיות לסטודיו'
+    }
+  }
+};
+
 export const categories: Category[] = [
   {
     id: 'fairy-tales',
-    name: 'Fairy Tales',
+    name: categoryTranslations.en['fairy-tales'].name,
     slug: 'fairy-tales',
     folder: 'Fairy tales',
-    description: 'Enchanting costumes from beloved fairy tales',
+    description: categoryTranslations.en['fairy-tales'].description,
     coverImage: '1369.JPG'
   },
   {
     id: 'huge-dolls',
-    name: 'Huge Dolls',
+    name: categoryTranslations.en['huge-dolls'].name,
     slug: 'huge-dolls',
     folder: 'Huge Dolls',
-    description: 'Larger than life costume creations',
+    description: categoryTranslations.en['huge-dolls'].description,
     coverImage: '871.JPG'
   },
   {
     id: 'military',
-    name: 'Military',
+    name: categoryTranslations.en['military'].name,
     slug: 'military',
     folder: 'Military',
-    description: 'Historical military and uniform costumes',
+    description: categoryTranslations.en['military'].description,
     coverImage: '1245.JPG'
   },
   {
     id: 'periodic',
-    name: 'Periodic',
+    name: categoryTranslations.en['periodic'].name,
     slug: 'periodic',
     folder: 'Periodic',
-    description: 'Historical period costume collection',
+    description: categoryTranslations.en['periodic'].description,
     coverImage: '1062.JPG'
   },
   {
     id: 'vintage',
-    name: 'Vintage',
+    name: categoryTranslations.en['vintage'].name,
     slug: 'vintage',
     folder: 'Vintage',
-    description: 'Classic vintage costume designs',
+    description: categoryTranslations.en['vintage'].description,
     coverImage: '1142.JPG'
   },
   {
     id: 'studio',
-    name: 'Studio',
+    name: categoryTranslations.en['studio'].name,
     slug: 'studio',
     folder: 'Studio',
-    description: 'Professional studio costume collection',
+    description: categoryTranslations.en['studio'].description,
     coverImage: '1150.JPG'
   }
 ];

@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -8,20 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-      },
-      colors: {
-        stage: {
-          primary: '#9333EA', // Vibrant purple
-          accent: '#FBBF24', // Warm yellow
-          pink: '#EC4899',
-          teal: '#14B8A6',
-        }
-      },
       backgroundImage: {
-        'gradient-stage': 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
-        'gradient-spotlight': 'radial-gradient(circle at top right, #FBBF24 0%, transparent 60%)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
@@ -41,7 +28,29 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
-};
+  plugins: [
+    // Add RTL support for space utilities
+    ({ addUtilities }: any) => {
+      const newUtilities = {
+        '.space-s-1 > :not([hidden]) ~ :not([hidden])': {
+          '--tw-space-s-reverse': '0',
+          'margin-inline-start': 'calc(0.25rem * calc(1 - var(--tw-space-s-reverse)))',
+          'margin-inline-end': 'calc(0.25rem * var(--tw-space-s-reverse))',
+        },
+        '.space-s-2 > :not([hidden]) ~ :not([hidden])': {
+          '--tw-space-s-reverse': '0',
+          'margin-inline-start': 'calc(0.5rem * calc(1 - var(--tw-space-s-reverse)))',
+          'margin-inline-end': 'calc(0.5rem * var(--tw-space-s-reverse))',
+        },
+        '.space-s-4 > :not([hidden]) ~ :not([hidden])': {
+          '--tw-space-s-reverse': '0',
+          'margin-inline-start': 'calc(1rem * calc(1 - var(--tw-space-s-reverse)))',
+          'margin-inline-end': 'calc(1rem * var(--tw-space-s-reverse))',
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
+}
 
-export default config;
+export default config

@@ -6,11 +6,16 @@ import { categories, type Category } from '@/constants/galleryData';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import ImageModal from '@/components/ImageModal';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
+const IMAGES_PER_PAGE = 12; // Number of images to load at once
 export default function CategoryPage() {
-  const [imageFiles, setImageFiles] = useState<string[]>([]);
+  const [allImages, setAllImages] = useState<string[]>([]);
+  const [displayedImages, setDisplayedImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { elementRef, isIntersecting } = useIntersectionObserver();
   const params = useParams();
   const categorySlug = params.category as string;
 
@@ -38,7 +43,10 @@ export default function CategoryPage() {
           throw new Error('Failed to fetch images');
         }
         const data = await response.json();
-        setImageFiles(data.images || []);
+        const images = data.images || [];
+        setAllImages(images);
+        setDisplayedImages(images.slice(0, IMAGES_PER_PAGE));
+        setHasMore(images.length > IMAGES_PER_PAGE);
       } catch (error) {
         console.error('Error loading images:', error);
       } finally {
@@ -48,6 +56,19 @@ export default function CategoryPage() {
 
     loadImages();
   }, [folder]);
+
+  // Load more images when intersection observer triggers
+  useEffect(() => {
+    if (isIntersecting && hasMore && !isLoading) {
+      const currentLength = displayedImages.length;
+      const nextImages = allImages.slice(
+        currentLength,
+        currentLength + IMAGES_PER_PAGE
+      );
+      setDisplayedImages(prev => [...prev, ...nextImages]);
+      setHasMore(currentLength + IMAGES_PER_PAGE < allImages.length);
+    }
+  }, [isIntersecting, hasMore, isLoading, allImages, displayedImages.length]);
 
   return (
     <>
@@ -59,11 +80,11 @@ export default function CategoryPage() {
 
         {isLoading ? (
           <div className="text-center py-12">
-            <p className="text-lg text-gray-600">Loading images...</p>
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {imageFiles.map((filename, index) => (
+            {displayedImages.map((filename: string, index: number) => (
               <div
                 key={`${filename}-${index}`}
                 className="aspect-[3/4] relative rounded-xl overflow-hidden bg-gray-100 group cursor-pointer"
@@ -81,6 +102,15 @@ export default function CategoryPage() {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
               </div>
             ))}
+          </div>
+        )}
+
+        {hasMore && !isLoading && (
+          <div 
+            ref={elementRef}
+            className="text-center py-12"
+          >
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
           </div>
         )}
       </div>

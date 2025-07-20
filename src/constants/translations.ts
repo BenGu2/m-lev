@@ -2,8 +2,8 @@ export type TranslationText = {
   nav: {
     home: string;
     about: string;
-    projects: string;
     gallery: string;
+    projects: string;
     studio: string;
     visit: string;
     contact: string;
@@ -90,8 +90,8 @@ export const translations: Record<string, TranslationText> = {
     nav: {
       home: 'Home',
       about: 'About Us',
-      projects: 'Projects',
       gallery: 'Gallery',
+      projects: 'Projects',
       studio: 'Photography Studio',
       visit: 'Visit Us',
       contact: 'Contact Us',
@@ -217,8 +217,8 @@ export const translations: Record<string, TranslationText> = {
     nav: {
       home: 'דף הבית',
       about: 'אודות',
-      projects: 'פרויקטים',
       gallery: 'גלריה',
+      projects: 'פרויקטים',
       studio: 'סטודיו צילום',
       visit: 'בקרו אותנו',
       contact: 'צור קשר',

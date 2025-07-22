@@ -7,6 +7,19 @@ export default function Home() {
   const { language } = useLanguage();
   const t = translations[language];
 
+  // Create main background style
+  const mainBackgroundStyle = {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    minHeight: '300vh',
+    backgroundImage: 'url("/images/red-cloth2.png")',
+    backgroundRepeat: 'repeat-y',
+    backgroundSize: '100% auto',
+    zIndex: -1
+  };
+
   const valueCardsIcons = [
     <svg key="history" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -30,6 +43,9 @@ export default function Home() {
 
   return (
     <>
+      {/* Main wooden background that scrolls with the page */}
+      <div style={mainBackgroundStyle} />
+
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden flex items-center">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500"></div>

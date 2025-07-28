@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { categories, type Category } from '@/constants/galleryData';
+import { categories, type Category, categoryTranslations } from '@/constants/galleryData';
+import { useLanguage } from '@/components/LanguageProvider';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import ImageModal from '@/components/ImageModal';
@@ -10,6 +11,7 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const IMAGES_PER_PAGE = 12; // Number of images to load at once
 export default function CategoryPage() {
+  const { language } = useLanguage();
   const [allImages, setAllImages] = useState<string[]>([]);
   const [displayedImages, setDisplayedImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +32,8 @@ export default function CategoryPage() {
   }
 
   // After notFound, TypeScript knows category is defined
-  const { name, description, folder } = category;
+  const { id, folder } = category;
+  const { name, description } = categoryTranslations[language][id];
 
   useEffect(() => {
     async function loadImages() {

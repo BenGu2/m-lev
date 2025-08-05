@@ -15,7 +15,7 @@ export default function ContactPage() {
 
   return (
     <div className="container mx-auto px-4 py-12" dir={language === 'he' ? 'rtl' : 'ltr'}>
-      <h1 className="text-4xl font-bold mb-8 text-center">{t.contact.title}</h1>
+      <h1 className="text-4xl font-bold mb-12 text-center">{t.contact.title}</h1>
       <div className="max-w-2xl mx-auto bg-white/50 backdrop-blur-sm rounded-lg p-8 shadow-lg">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

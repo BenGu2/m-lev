@@ -10,9 +10,9 @@ export default function GalleryPage() {
   const t = translations[language];
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{t.gallery.title}</h1>
+    <div className="container mx-auto px-4">
+      <div className="max-w-4xl mx-auto text-center py-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-12">{t.gallery.title}</h1>
         <p className="text-xl text-gray-600">
           {t.gallery.intro}
         </p>

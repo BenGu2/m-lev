@@ -11,7 +11,7 @@ export default function VisitPage() {
     <>
       {/* Title */}
       <section className="py-12">
-        <h1 className="text-4xl font-bold text-center mb-6">{t.visit.title}</h1>
+        <h1 className="text-4xl font-bold text-center mb-12">{t.visit.title}</h1>
         <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
           {t.visit.intro}
         </p>

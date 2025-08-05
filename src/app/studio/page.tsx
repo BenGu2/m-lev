@@ -1,28 +1,28 @@
+'use client';
+
+import { useLanguage } from '@/components/LanguageProvider';
+import { translations } from '@/constants/translations';
+
 export default function StudioPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <>
       {/* Title and Intro */}
       <section className="py-12">
-        <h1 className="text-4xl font-bold text-center mb-6">Photo Studio</h1>
+        <h1 className="text-4xl font-bold text-center mb-6">{t.studio.title}</h1>
         <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-          Professional photography services in our fully equipped studio.
-          Perfect for costume documentation, portfolios, and special events.
+          {t.studio.intro}
         </p>
       </section>
 
       {/* Who It's For */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Perfect For</h2>
+          <h2 className="text-3xl font-bold mb-8">{t.studio.perfectFor.title}</h2>
           <ul className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: 'Theater Productions', desc: 'Promotional materials and archives' },
-              { title: 'Special Events', desc: 'Pre-event costume photography' },
-              { title: 'Wedding Photos', desc: 'Unique pre-wedding shoots' },
-              { title: 'Portfolio Building', desc: 'Actor and model portfolios' },
-              { title: 'Costume Documentation', desc: 'High-quality costume records' },
-              { title: 'Social Media Content', desc: 'Professional content creation' }
-            ].map((item) => (
+            {t.studio.perfectFor.items.map((item) => (
               <li key={item.title} className="flex items-start gap-3">
                 <span className="text-green-500">✓</span>
                 <div>
@@ -38,15 +38,9 @@ export default function StudioPage() {
       {/* What's Included */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">What's Included</h2>
+          <h2 className="text-3xl font-bold mb-8">{t.studio.whatsIncluded.title}</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: 'Professional Photographer', desc: 'Experienced in costume and fashion photography' },
-              { title: 'Lighting Equipment', desc: 'Professional studio lighting setup' },
-              { title: 'Makeup Artist', desc: 'Professional makeup services available' },
-              { title: 'Digital Files', desc: 'High-resolution images provided' },
-              { title: 'Costume Styling', desc: 'Expert costume fitting and styling' }
-            ].map((service) => (
+            {t.studio.whatsIncluded.items.map((service) => (
               <div key={service.title} className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-600 text-sm">{service.desc}</p>

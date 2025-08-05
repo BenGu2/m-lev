@@ -46,6 +46,22 @@ export type TranslationText = {
       }>;
     };
   };
+  projects: {
+    title: string;
+    intro: string;
+    tabs: {
+      byProject: string;
+      byCompany: string;
+    };
+    projectTypes: {
+      theater: string;
+      ballet: string;
+      film: string;
+      opera: string;
+      event: string;
+      tvSeries: string;
+    };
+  };
   accessibility: {
     title: string;
     commitment: string;
@@ -82,6 +98,45 @@ export type TranslationText = {
       film: string;
       events: string;
     };
+  };
+  studio: {
+    title: string;
+    intro: string;
+    perfectFor: {
+      title: string;
+      items: Array<{
+        title: string;
+        desc: string;
+      }>;
+    };
+    whatsIncluded: {
+      title: string;
+      items: Array<{
+        title: string;
+        desc: string;
+      }>;
+    };
+  };
+  contact: {
+    title: string;
+    form: {
+      firstName: string;
+      lastName: string;
+      email: string;
+      phone: string;
+      subject: string;
+      message: string;
+      organization: string;
+      submit: string;
+    };
+    subjectOptions: {
+      general: string;
+      rental: string;
+      photography: string;
+      other: string;
+    };
+    successMessage: string;
+    errorMessage: string;
   };
 };
 
@@ -175,6 +230,22 @@ export const translations: Record<string, TranslationText> = {
         ]
       }
     },
+    projects: {
+      title: 'Our Projects',
+      intro: 'Discover our work in theater, film, and special events',
+      tabs: {
+        byProject: 'By Project',
+        byCompany: 'By Company'
+      },
+      projectTypes: {
+        theater: 'Theater',
+        ballet: 'Ballet',
+        film: 'Film',
+        opera: 'Opera',
+        event: 'Event',
+        tvSeries: 'TV Series'
+      }
+    },
     accessibility: {
       title: 'Accessibility',
       commitment: 'We are committed to making our services accessible to everyone.',
@@ -211,6 +282,52 @@ export const translations: Record<string, TranslationText> = {
         film: 'Film Projects',
         events: 'Special Events'
       }
+    },
+    studio: {
+      title: 'Photo Studio',
+      intro: 'Professional photography services in our fully equipped studio. Perfect for costume documentation, portfolios, and special events.',
+      perfectFor: {
+        title: 'Perfect For',
+        items: [
+          { title: 'Theater Productions', desc: 'Promotional materials and archives' },
+          { title: 'Special Events', desc: 'Pre-event costume photography' },
+          { title: 'Wedding Photos', desc: 'Unique pre-wedding shoots' },
+          { title: 'Portfolio Building', desc: 'Actor and model portfolios' },
+          { title: 'Costume Documentation', desc: 'High-quality costume records' },
+          { title: 'Social Media Content', desc: 'Professional content creation' }
+        ]
+      },
+      whatsIncluded: {
+        title: 'What\'s Included',
+        items: [
+          { title: 'Professional Photographer', desc: 'Experienced in costume and fashion photography' },
+          { title: 'Lighting Equipment', desc: 'Professional studio lighting setup' },
+          { title: 'Makeup Artist', desc: 'Professional makeup services available' },
+          { title: 'Digital Files', desc: 'High-resolution images provided' },
+          { title: 'Costume Styling', desc: 'Expert costume fitting and styling' }
+        ]
+      }
+    },
+    contact: {
+      title: 'Contact Us',
+      form: {
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        email: 'Email',
+        phone: 'Phone',
+        subject: 'Subject',
+        message: 'Message',
+        organization: 'Organization',
+        submit: 'Send Message'
+      },
+      subjectOptions: {
+        general: 'General Inquiry',
+        rental: 'Costume Rental',
+        photography: 'Photography Services',
+        other: 'Other'
+      },
+      successMessage: 'Thank you for your message. We will get back to you soon.',
+      errorMessage: 'Sorry, there was an error sending your message. Please try again.'
     }
   },
   he: {
@@ -302,6 +419,22 @@ export const translations: Record<string, TranslationText> = {
         ]
       }
     },
+    projects: {
+      title: 'הפרויקטים שלנו',
+      intro: 'גלו את עבודתנו בתיאטרון, קולנוע ואירועים מיוחדים',
+      tabs: {
+        byProject: 'לפי פרויקט',
+        byCompany: 'לפי חברה'
+      },
+      projectTypes: {
+        theater: 'תיאטרון',
+        ballet: 'בלט',
+        film: 'סרט',
+        opera: 'אופרה',
+        event: 'אירוע',
+        tvSeries: 'סדרת טלוויזיה'
+      }
+    },
     accessibility: {
       title: 'נגישות',
       commitment: 'אנו מחויבים להנגיש את שירותינו לכולם.',
@@ -338,6 +471,52 @@ export const translations: Record<string, TranslationText> = {
         film: 'פרויקטי קולנוע',
         events: 'אירועים מיוחדים'
       }
+    },
+    studio: {
+      title: 'סטודיו צילום',
+      intro: 'שירותי צילום מקצועיים בסטודיו המאובזר שלנו. מושלם לתיעוד תלבושות, תיקי עבודות ואירועים מיוחדים.',
+      perfectFor: {
+        title: 'מושלם עבור',
+        items: [
+          { title: 'הפקות תיאטרון', desc: 'חומרי פרסום וארכיון' },
+          { title: 'אירועים מיוחדים', desc: 'צילומי תלבושות לפני האירוע' },
+          { title: 'צילומי חתונה', desc: 'צילומים ייחודיים לפני החתונה' },
+          { title: 'בניית תיק עבודות', desc: 'תיקי עבודות לשחקנים ודוגמנים' },
+          { title: 'תיעוד תלבושות', desc: 'תיעוד תלבושות באיכות גבוהה' },
+          { title: 'תוכן למדיה חברתית', desc: 'יצירת תוכן מקצועי' }
+        ]
+      },
+      whatsIncluded: {
+        title: 'מה כלול',
+        items: [
+          { title: 'צלם מקצועי', desc: 'בעל ניסיון בצילומי תלבושות ואופנה' },
+          { title: 'ציוד תאורה', desc: 'מערכת תאורת סטודיו מקצועית' },
+          { title: 'מאפר/ת מקצועי/ת', desc: 'שירותי איפור מקצועיים זמינים' },
+          { title: 'קבצים דיגיטליים', desc: 'תמונות באיכות גבוהה' },
+          { title: 'סטיילינג תלבושות', desc: 'התאמת וסטיילינג תלבושות מקצועי' }
+        ]
+      }
+    },
+    contact: {
+      title: 'צור קשר',
+      form: {
+        firstName: 'שם פרטי',
+        lastName: 'שם משפחה',
+        email: 'דוא"ל',
+        phone: 'טלפון',
+        subject: 'נושא',
+        message: 'הודעה',
+        organization: 'ארגון',
+        submit: 'שלח הודעה'
+      },
+      subjectOptions: {
+        general: 'פנייה כללית',
+        rental: 'השכרת תלבושות',
+        photography: 'שירותי צילום',
+        other: 'אחר'
+      },
+      successMessage: 'תודה על פנייתך. נחזור אליך בהקדם.',
+      errorMessage: 'מצטערים, הייתה שגיאה בשליחת ההודעה. אנא נסה שוב.'
     }
   }
 };

@@ -1,11 +1,29 @@
+'use client';
+import { useLanguage } from '@/components/LanguageProvider';
+import { translations } from '@/constants/translations';
+
 export default function ProjectsPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  type ProjectType = keyof typeof t.projects.projectTypes;
+
+  const projects: Array<{ title: string; type: ProjectType; year: string }> = [
+    { title: language === 'he' ? 'רומיאו ויוליה' : 'Romeo & Juliet', type: 'theater', year: '2024' },
+    { title: language === 'he' ? 'מפצח האגוזים' : 'The Nutcracker', type: 'ballet', year: '2024' },
+    { title: language === 'he' ? 'דרמה היסטורית' : 'Historical Drama', type: 'film', year: '2023' },
+    { title: language === 'he' ? 'גאלה אופרה' : 'Opera Gala', type: 'opera', year: '2023' },
+    { title: language === 'he' ? 'תצוגת אופנה' : 'Fashion Show', type: 'event', year: '2023' },
+    { title: language === 'he' ? 'דרמה תקופתית' : 'Period Drama', type: 'tvSeries', year: '2023' }
+  ];
+
   return (
     <>
       {/* Page Title */}
       <section className="py-12">
-        <h1 className="text-4xl font-bold text-center mb-6">Our Projects</h1>
+        <h1 className="text-4xl font-bold text-center mb-6">{t.projects.title}</h1>
         <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
-          Discover our work in theater, film, and special events.
+          {t.projects.intro}
         </p>
       </section>
 
@@ -14,10 +32,10 @@ export default function ProjectsPage() {
         <div className="border-b border-gray-200">
           <nav className="flex gap-8">
             <button className="border-b-2 border-gray-900 py-4 text-gray-900 font-medium">
-              By Project
+              {t.projects.tabs.byProject}
             </button>
             <button className="py-4 text-gray-500 font-medium">
-              By Company
+              {t.projects.tabs.byCompany}
             </button>
           </nav>
         </div>
@@ -26,20 +44,13 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section className="mb-20">
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: 'Romeo & Juliet', type: 'Theater', year: '2024' },
-            { title: 'The Nutcracker', type: 'Ballet', year: '2024' },
-            { title: 'Historical Drama', type: 'Film', year: '2023' },
-            { title: 'Opera Gala', type: 'Opera', year: '2023' },
-            { title: 'Fashion Show', type: 'Event', year: '2023' },
-            { title: 'Period Drama', type: 'TV Series', year: '2023' }
-          ].map((project) => (
+          {projects.map((project) => (
             <div key={project.title} className="group cursor-pointer">
               <div className="aspect-4/3 bg-gray-200 rounded-lg mb-4"></div>
               <h3 className="font-semibold group-hover:text-gray-600 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-sm text-gray-600">{project.type} • {project.year}</p>
+              <p className="text-sm text-gray-600">{t.projects.projectTypes[project.type]} • {project.year}</p>
             </div>
           ))}
         </div>

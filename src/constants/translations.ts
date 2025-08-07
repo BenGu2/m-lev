@@ -102,19 +102,31 @@ export type TranslationText = {
   studio: {
     title: string;
     intro: string;
-    perfectFor: {
+    experience: {
       title: string;
-      items: Array<{
+      desc: string;
+      highlights: Array<{
         title: string;
         desc: string;
       }>;
     };
-    whatsIncluded: {
+    journey: {
       title: string;
-      items: Array<{
+      steps: Array<{
         title: string;
         desc: string;
       }>;
+    };
+    gallery: {
+      title: string;
+    };
+    booking: {
+      title: string;
+      description: string;
+      whatsappButton: string;
+    };
+    cta: {
+      viewFullGallery: string;
     };
   };
   contact: {
@@ -284,28 +296,57 @@ export const translations: Record<string, TranslationText> = {
       }
     },
     studio: {
-      title: 'Photo Studio',
-      intro: 'Professional photography services in our fully equipped studio. Perfect for costume documentation, portfolios, and special events.',
-      perfectFor: {
-        title: 'Perfect For',
-        items: [
-          { title: 'Theater Productions', desc: 'Promotional materials and archives' },
-          { title: 'Special Events', desc: 'Pre-event costume photography' },
-          { title: 'Wedding Photos', desc: 'Unique pre-wedding shoots' },
-          { title: 'Portfolio Building', desc: 'Actor and model portfolios' },
-          { title: 'Costume Documentation', desc: 'High-quality costume records' },
-          { title: 'Social Media Content', desc: 'Professional content creation' }
+      title: 'Studio Experience',
+      intro: 'Step into a world of theatrical magic and create unforgettable memories in our professional costume studio',
+      experience: {
+        title: 'A Unique Experience',
+        desc: 'More than just a photo session - immerse yourself in the rich history of theatrical costumes and create magical moments in our professional studio.',
+        highlights: [
+          {
+            title: 'Professional Costume Fitting',
+            desc: 'Our expert dressers will help you select and fit the perfect costume for your theme'
+          },
+          {
+            title: 'Rich Cultural History',
+            desc: 'Discover the fascinating stories behind our collection as you explore decades of theatrical history'
+          },
+          {
+            title: 'Professional Photography',
+            desc: 'Capture stunning moments with professional lighting and expert photography in our studio'
+          }
         ]
       },
-      whatsIncluded: {
-        title: 'What\'s Included',
-        items: [
-          { title: 'Professional Photographer', desc: 'Experienced in costume and fashion photography' },
-          { title: 'Lighting Equipment', desc: 'Professional studio lighting setup' },
-          { title: 'Makeup Artist', desc: 'Professional makeup services available' },
-          { title: 'Digital Files', desc: 'High-resolution images provided' },
-          { title: 'Costume Styling', desc: 'Expert costume fitting and styling' }
+      journey: {
+        title: 'Your Studio Journey',
+        steps: [
+          {
+            title: 'Welcome & History',
+            desc: 'Begin with a fascinating tour of our collection and learn about our theatrical heritage'
+          },
+          {
+            title: 'Costume Selection',
+            desc: 'Choose from our extensive collection and get professionally fitted by our expert dressers'
+          },
+          {
+            title: 'Professional Photo Session',
+            desc: 'Create magical moments in our fully equipped studio with professional lighting'
+          },
+          {
+            title: 'Take Home Memories',
+            desc: 'Leave with professionally captured photos and unforgettable memories'
+          }
         ]
+      },
+      gallery: {
+        title: 'Studio Gallery'
+      },
+      booking: {
+        title: 'Book Your Session',
+        description: 'Contact us via WhatsApp or email to schedule your photo session. We\'ll help you plan the perfect shoot for your needs.',
+        whatsappButton: 'Book via WhatsApp'
+      },
+      cta: {
+        viewFullGallery: 'View Full Studio Gallery'
       }
     },
     contact: {
@@ -326,33 +367,33 @@ export const translations: Record<string, TranslationText> = {
         photography: 'Photography Services',
         other: 'Other'
       },
-      successMessage: 'Thank you for your message. We will get back to you soon.',
+      successMessage: 'Thank you for your inquiry. We will get back to you soon.',
       errorMessage: 'Sorry, there was an error sending your message. Please try again.'
     }
   },
   he: {
     nav: {
-      home: 'דף הבית',
+      home: 'בית',
       about: 'אודות',
       gallery: 'גלריה',
       projects: 'פרויקטים',
-      studio: 'סטודיו צילום',
+      studio: 'סטודיו לצילום',
       visit: 'בקרו אותנו',
       contact: 'צור קשר',
       accessibility: 'נגישות'
     },
     home: {
-      welcome: 'ברוכים הבאים למ-לב תלבושות',
-      mainHeading: 'הגשימו את החזון שלכם עם התלבושות המושלמות',
-      subHeading: 'גלו את האוסף המקיף שלנו של תלבושות איכותיות לתיאטרון, סרטים ואירועים',
+      welcome: 'ברוכים הבאים ל-M-LEV תלבושות',
+      mainHeading: 'החיים את החזון שלך עם תלבושות מושלמות',
+      subHeading: 'גלו את האוסף הנרחב שלנו של תלבושות איכותיות לתיאטרון, קולנוע ואירועים.',
       cta: {
         viewProjects: 'צפו בפרויקטים',
-        contact: 'צרו קשר'
+        contact: 'צור קשר'
       },
       valueCards: [
         {
           title: 'דיוק היסטורי',
-          text: 'התלבושות שלנו נחקרות ומעוצבות בקפידה להבטחת אותנטיות תקופתית'
+          text: 'התלבושות שלנו מחקרות ומעוצבות בקפידה כדי להבטיח אותנטיות תקופתית'
         },
         {
           title: 'איכות מקצועית',
@@ -473,28 +514,57 @@ export const translations: Record<string, TranslationText> = {
       }
     },
     studio: {
-      title: 'סטודיו צילום',
-      intro: 'שירותי צילום מקצועיים בסטודיו המאובזר שלנו. מושלם לתיעוד תלבושות, תיקי עבודות ואירועים מיוחדים.',
-      perfectFor: {
-        title: 'מושלם עבור',
-        items: [
-          { title: 'הפקות תיאטרון', desc: 'חומרי פרסום וארכיון' },
-          { title: 'אירועים מיוחדים', desc: 'צילומי תלבושות לפני האירוע' },
-          { title: 'צילומי חתונה', desc: 'צילומים ייחודיים לפני החתונה' },
-          { title: 'בניית תיק עבודות', desc: 'תיקי עבודות לשחקנים ודוגמנים' },
-          { title: 'תיעוד תלבושות', desc: 'תיעוד תלבושות באיכות גבוהה' },
-          { title: 'תוכן למדיה חברתית', desc: 'יצירת תוכן מקצועי' }
+      title: 'חוויית סטודיו',
+      intro: 'היכנסו לעולם הקסום של התיאטרון וצרו זכרונות בלתי נשכחים בסטודיו התלבושות המקצועי שלנו',
+      experience: {
+        title: 'חוויה ייחודית',
+        desc: 'יותר מסתם צילומים - טבלו בהיסטוריה העשירה של תלבושות תיאטרון וצרו רגעים קסומים בסטודיו המקצועי שלנו',
+        highlights: [
+          {
+            title: 'התאמת תלבושות מקצועית',
+            desc: 'מלבישים מקצועיים יעזרו לכם לבחור ולהתאים את התלבושת המושלמת לנושא שבחרתם'
+          },
+          {
+            title: 'היסטוריה תרבותית עשירה',
+            desc: 'גלו את הסיפורים המרתקים מאחורי האוסף שלנו תוך כדי מסע בעשורים של היסטוריה תיאטרלית'
+          },
+          {
+            title: 'צילום מקצועי',
+            desc: 'הנציחו רגעים מרהיבים עם תאורה מקצועית וצילום מומחה בסטודיו שלנו'
+          }
         ]
       },
-      whatsIncluded: {
-        title: 'מה כלול',
-        items: [
-          { title: 'צלם מקצועי', desc: 'בעל ניסיון בצילומי תלבושות ואופנה' },
-          { title: 'ציוד תאורה', desc: 'מערכת תאורת סטודיו מקצועית' },
-          { title: 'מאפר/ת מקצועי/ת', desc: 'שירותי איפור מקצועיים זמינים' },
-          { title: 'קבצים דיגיטליים', desc: 'תמונות באיכות גבוהה' },
-          { title: 'סטיילינג תלבושות', desc: 'התאמת וסטיילינג תלבושות מקצועי' }
+      journey: {
+        title: 'המסע שלכם בסטודיו',
+        steps: [
+          {
+            title: 'קבלת פנים והיסטוריה',
+            desc: 'התחילו בסיור מרתק באוסף שלנו ולמדו על המורשת התיאטרלית שלנו'
+          },
+          {
+            title: 'בחירת תלבושת',
+            desc: 'בחרו מתוך האוסף הנרחב שלנו וקבלו התאמה מקצועית ממלבישים מומחים'
+          },
+          {
+            title: 'מפגש צילום מקצועי',
+            desc: 'צרו רגעים קסומים בסטודיו המאובזר שלנו עם תאורה מקצועית'
+          },
+          {
+            title: 'לקחת הביתה זכרונות',
+            desc: 'עזבו עם תמונות שצולמו במקצועיות וזכרונות בלתי נשכחים'
+          }
         ]
+      },
+      gallery: {
+        title: 'גלריית הסטודיו'
+      },
+      booking: {
+        title: 'הזמנת מפגש',
+        description: 'צרו איתנו קשר דרך וואטסאפ או אימייל כדי לקבוע צילום. נעזור לכם לתכנן את הצילום המושלם עבורכם.',
+        whatsappButton: 'הזמנה דרך וואטסאפ'
+      },
+      cta: {
+        viewFullGallery: 'צפייה בגלריית הסטודיו המלאה'
       }
     },
     contact: {

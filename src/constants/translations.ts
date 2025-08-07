@@ -253,21 +253,21 @@ export const translations: Record<string, TranslationText> = {
       contact: 'If you require any special accommodations, please contact us.'
     },
     visit: {
-      title: 'Visit Our Studio',
-      intro: 'Experience our collection in person at our Tel Aviv location.',
+      title: 'Visit Us',
+      intro: 'Visit our costume warehouse in Tel Aviv.',
       schedule: {
         title: 'Opening Hours',
         weekdays: 'Sunday - Thursday',
         friday: 'Friday',
         saturday: 'Saturday',
-        hours: '10:00 - 18:00',
-        fridayHours: '10:00 - 14:00',
+        hours: '9:00 - 16:00',
+        fridayHours: 'Closed',
         saturdayClosed: 'Closed'
       },
       location: {
         title: 'Location',
-        address: '123 Dizengoff Street, Tel Aviv',
-        directions: 'Near Dizengoff Center, accessible by bus lines 5, 72, and 172'
+        address: 'Ben Yehuda 236, Tel Aviv',
+        directions: 'Ben Yehuda 236, Tel Aviv-Yafo'
       },
       booking: {
         title: 'Book an Appointment',
@@ -442,21 +442,21 @@ export const translations: Record<string, TranslationText> = {
       contact: 'אם אתם זקוקים להתאמות מיוחדות, אנא צרו איתנו קשר.'
     },
     visit: {
-      title: 'בקרו בסטודיו שלנו',
-      intro: 'חוו את האוסף שלנו באופן אישי במיקום שלנו בתל אביב.',
+      title: 'בקרו אצלנו',
+      intro: 'בקרו במחסן התלבושות שלנו בתל אביב.',
       schedule: {
         title: 'שעות פתיחה',
         weekdays: 'ראשון - חמישי',
         friday: 'שישי',
         saturday: 'שבת',
-        hours: '10:00 - 18:00',
-        fridayHours: '10:00 - 14:00',
+        hours: '9:00 - 16:00',
+        fridayHours: 'סגור',
         saturdayClosed: 'סגור'
       },
       location: {
         title: 'מיקום',
-        address: 'דיזנגוף 123, תל אביב',
-        directions: 'ליד מרכז דיזנגוף, נגיש באמצעות קווי אוטובוס 5, 72, ו-172'
+        address: 'בן יהודה 236, תל אביב',
+        directions: 'בן יהודה 236, תל אביב-יפו'
       },
       booking: {
         title: 'קביעת פגישה',

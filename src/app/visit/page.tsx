@@ -21,7 +21,7 @@ export default function VisitPage() {
       <section className="mb-16">
         <div className="aspect-[16/9] bg-gray-100 rounded-lg overflow-hidden">
           <iframe
-            src="about:blank"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.122019958292!2d34.77244777613006!3d32.092987718627676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4bf54cecd189%3A0x6707c76da94d0f48!2z157Xl9eh16DXmSDXnNeR!5e0!3m2!1sen!2sil!4v1754549086878!5m2!1sen!2sil"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -40,11 +40,8 @@ export default function VisitPage() {
           <div className="max-w-2xl mx-auto">
             <div className={language === 'he' ? 'text-right' : 'text-left'}>
               <h2 className="text-xl font-semibold mb-4">{t.visit.location.title}</h2>
-              <address className="not-italic text-gray-600 space-y-2">
-                {t.visit.location.address.split(',').map((line, i) => (
-                  <p key={i}>{line.trim()}</p>
-                ))}
-                <p className="mt-4 text-gray-500">{t.visit.location.directions}</p>
+              <address className="not-italic text-gray-600">
+                <p>{t.visit.location.address}</p>
               </address>
             </div>
           </div>
@@ -63,18 +60,6 @@ export default function VisitPage() {
             </ul>
           </div>
         </div>
-      </section>
-
-      {/* Booking Info */}
-      <section className="py-16 text-center">
-        <h2 className="text-xl font-semibold mb-4">{t.visit.booking.title}</h2>
-        <p className="text-gray-600 mb-4">{t.visit.booking.info}</p>
-        <a
-          href="/contact"
-          className="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-        >
-          {t.nav.contact}
-        </a>
       </section>
     </>
   );

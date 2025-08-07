@@ -21,6 +21,11 @@ export default function RootLayout({
   return (
     <LanguageProvider>
       <html lang="he" dir="rtl" className={inter.variable}>
+        <head>
+          <link rel="preconnect" href="https://www.google.com" />
+          <link rel="preconnect" href="https://maps.googleapis.com" />
+          <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        </head>
         <body className="antialiased font-sans min-h-screen flex flex-col bg-white text-gray-900">
           <div className="flex min-h-screen flex-col">
             <Header />

@@ -18,7 +18,7 @@ export default function StudioPage() {
     <>
       {/* Title and Intro */}
       <section className="py-12">
-        <h1 className="text-4xl font-bold text-center mb-8">{t.studio.title}</h1>
+        <h1 className="text-4xl font-bold text-center mb-12">{t.studio.title}</h1>
         <Carousel images={studioCarouselImages} />
         <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">
           {t.studio.intro}

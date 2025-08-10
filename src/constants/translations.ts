@@ -156,10 +156,10 @@ export const translations: Record<string, TranslationText> = {
   en: {
     nav: {
       home: 'Home',
-      about: 'About Us',
+      about: 'Our Story',
       gallery: 'Gallery',
       projects: 'Projects',
-      studio: 'Photography Studio',
+      studio: 'Studio Experience',
       visit: 'Visit Us',
       contact: 'Contact Us',
       accessibility: 'Accessibility'
@@ -209,7 +209,7 @@ export const translations: Record<string, TranslationText> = {
       }
     },
     about: {
-      title: 'About M-Lev Costumes',
+      title: 'Our Story',
       intro: 'With decades of experience in theatrical costume design, we bring stories to life through authentic and meticulously crafted period costumes.',
       story: {
         title: 'Our Story',
@@ -374,7 +374,7 @@ export const translations: Record<string, TranslationText> = {
   he: {
     nav: {
       home: 'בית',
-      about: 'אודות',
+      about: 'הסיפור שלנו',
       gallery: 'גלריה',
       projects: 'פרויקטים',
       studio: 'סטודיו לצילום',
@@ -427,7 +427,7 @@ export const translations: Record<string, TranslationText> = {
       }
     },
     about: {
-      title: 'אודות מ-לב תלבושות',
+      title: 'הסיפור שלנו',
       intro: 'עם עשרות שנות ניסיון בעיצוב תלבושות תיאטרון, אנו מחיים סיפורים דרך תלבושות תקופתיות אותנטיות ומעוצבות בקפידה.',
       story: {
         title: 'הסיפור שלנו',
@@ -514,7 +514,7 @@ export const translations: Record<string, TranslationText> = {
       }
     },
     studio: {
-      title: 'חוויית סטודיו',
+      title: 'סטודיו לצילום',
       intro: 'היכנסו לעולם הקסום של התיאטרון וצרו זכרונות בלתי נשכחים בסטודיו התלבושות המקצועי שלנו',
       experience: {
         title: 'חוויה ייחודית',

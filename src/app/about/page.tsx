@@ -75,20 +75,7 @@ export default function AboutPage() {
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/3 flex justify-center">
-              <div className="rounded-lg overflow-hidden">
-                <Image
-                  src="/images/20(1).jpeg"
-                  alt="Lev Luria"
-                  width={400}
-                  height={600}
-                  priority
-                  className="w-auto h-auto"
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-              </div>
-            </div>
-            <div className="md:w-2/3">
+            <div className="md:w-2/3 order-2 md:order-1">
               <div className="prose max-w-none space-y-6">
                 <p className="text-lg text-gray-600">
                   {language === 'he'
@@ -102,6 +89,19 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            <div className="md:w-1/3 flex justify-center order-1 md:order-2">
+              <div className="rounded-lg overflow-hidden">
+                <Image
+                  src="/images/20(1).jpeg"
+                  alt="Lev Luria"
+                  width={400}
+                  height={600}
+                  priority
+                  className="w-auto h-auto"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -110,7 +110,19 @@ export default function AboutPage() {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-2/3">
+            <div className="md:w-1/3 flex justify-center order-2 md:order-1">
+              <div className="rounded-lg overflow-hidden">
+                <Image
+                  src="/images/990.JPG"
+                  alt="Costume Collection"
+                  width={400}
+                  height={600}
+                  className="w-auto h-auto"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
+              </div>
+            </div>
+            <div className="md:w-2/3 order-1 md:order-2">
               <div className="prose max-w-none space-y-6">
                 <p className="text-lg text-gray-600">
                   {language === 'he'
@@ -124,18 +136,6 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="md:w-1/3 flex justify-center">
-              <div className="rounded-lg overflow-hidden">
-                <Image
-                  src="/images/990.JPG"
-                  alt="Costume Collection"
-                  width={400}
-                  height={600}
-                  className="w-auto h-auto"
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -144,7 +144,16 @@ export default function AboutPage() {
       <section className="py-12">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/3 flex justify-center">
+            <div className="md:w-2/3 order-2 md:order-1">
+              <div className="prose max-w-none">
+                <p className="text-lg text-gray-600">
+                  {language === 'he'
+                    ? 'עם לקוחותינו נמנים: ערוצי הטלויזיה השונים, חברות פרסום וקידום מכירות, בתי מלון תיאטראות, מפיקי סרטים ובמאים, מועדונים, מפיקי אירועים, חברות תיירות פנים וחוץ, קרנבלים בארץ ובחו"ל, וכן אלפי לקוחות פרטיים מרוצים.'
+                    : 'Our clients include television channels, advertising companies, hotels, theaters, film producers, directors, clubs, event producers, tourism companies, carnivals in Israel and abroad, and thousands of satisfied private customers.'}
+                </p>
+              </div>
+            </div>
+            <div className="md:w-1/3 flex justify-center order-1 md:order-2">
               <div className="rounded-lg overflow-hidden">
                 <Image
                   src="/images/1723.JPG"
@@ -154,15 +163,6 @@ export default function AboutPage() {
                   className="w-auto h-auto"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
-              </div>
-            </div>
-            <div className="md:w-2/3">
-              <div className="prose max-w-none">
-                <p className="text-lg text-gray-600">
-                  {language === 'he'
-                    ? 'עם לקוחותינו נמנים: ערוצי הטלויזיה השונים, חברות פרסום וקידום מכירות, בתי מלון תיאטראות, מפיקי סרטים ובמאים, מועדונים, מפיקי אירועים, חברות תיירות פנים וחוץ, קרנבלים בארץ ובחו"ל, וכן אלפי לקוחות פרטיים מרוצים.'
-                    : 'Our clients include television channels, advertising companies, hotels, theaters, film producers, directors, clubs, event producers, tourism companies, carnivals in Israel and abroad, and thousands of satisfied private customers.'}
-                </p>
               </div>
             </div>
           </div>

@@ -1,123 +1,222 @@
 'use client';
-import { useLanguage } from '@/components/LanguageProvider';
+
+import Image from 'next/image';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useEffect, useState } from 'react';
 import { translations } from '@/constants/translations';
-import { type ReactNode } from 'react';
+import { useLanguage } from '@/components/LanguageProvider';
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const { language } = useLanguage();
   const t = translations[language];
+  
+  const { elementRef: heroRef, isIntersecting: isVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const { elementRef: categoriesRef, isIntersecting: categoriesVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const { elementRef: processRef, isIntersecting: processVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const { elementRef: aboutRef, isIntersecting: aboutVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const { elementRef: projectsRef, isIntersecting: projectsVisible } = useIntersectionObserver({ threshold: 0.1 });
 
-
-  const valueCardsIcons = [
-    <svg key="history" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-    </svg>,
-    <svg key="reputation" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-    </svg>,
-    <svg key="collection" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-    </svg>
-  ];
-
-  const stepIcons = ['🔍', '✨', '📝', '↩️'];
-  const enrichedSteps = t.home.rental.steps.map((step, index) => ({
-    ...step,
-    icon: stepIcons[index] || '📍'
-  }));
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.3),transparent_60%)]"></div>
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+    <main className="min-h-screen">
+      {/* Hero Section with Logo Overlay */}
+      <section 
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        <div className="absolute inset-0">
+          <Image
+            src="/images/224.JPG"
+            alt="Costume Workshop"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2c1810]/90 to-[#4a2c1d]/90" />
+        </div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
+        </div>
+        
+        {/* Main content */}
+        <div className={`relative z-10 text-center transition-all duration-1000 px-4 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+        }`}>
+          <h1 className="text-7xl font-bold mb-8 text-white font-serif">
+            {t.home.mainHeading}
+          </h1>
+          <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            {t.home.subHeading}
+          </p>
+          <div className="flex flex-wrap gap-6 justify-center">
+            <a
+              href="/gallery"
+              className="inline-block px-8 py-4 bg-[#8b4513] text-white rounded-md hover:bg-[#6b3410] transition-all duration-300 transform hover:scale-105 text-lg"
+            >
+              {t.nav.gallery}
+            </a>
+            <a
+              href="/studio"
+              className="inline-block px-8 py-4 bg-[#8b4513] text-white rounded-md hover:bg-[#6b3410] transition-all duration-300 transform hover:scale-105 text-lg"
+            >
+              {t.nav.studio}
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <div className="container mx-auto px-4 relative text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8 text-yellow-400 font-semibold tracking-wider">{t.home.welcome}</div>
-            <h1 className="text-7xl font-bold mb-6 text-white drop-shadow-xl leading-tight">
-              {t.home.mainHeading}
-            </h1>
-            <p className="text-2xl text-white/95 mb-12 drop-shadow-lg max-w-2xl mx-auto leading-relaxed">
-              {t.home.subHeading}
-            </p>
-            <div className="flex gap-6 justify-center">
-              <a
-                href="/projects"
-                className="bg-yellow-400 text-gray-900 px-10 py-5 rounded-xl hover:bg-yellow-300
-                transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl
-                font-bold text-lg group"
-              >
-                {t.home.cta.viewProjects}
-                <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </a>
-              <a
-                href="/contact"
-                className="border-2 border-white text-white px-10 py-5 rounded-xl
-                hover:bg-white hover:text-purple-600 transition-all duration-300
-                font-bold text-lg backdrop-blur-sm"
-              >
-                {t.home.cta.contact}
-              </a>
+      {/* Milestones Section */}
+      <section 
+        ref={categoriesRef}
+        className="py-24 bg-[#f8f5f1] relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-12 transition-all duration-1000 ${
+            categoriesVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-20'
+          }`}>
+            <div className="relative bg-white p-10 rounded-lg shadow-xl transform transition-all duration-300 hover:-translate-y-2 text-center group">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2c1810] text-white flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 className="text-4xl font-bold mb-3 text-[#8b4513]">10,000+</h3>
+              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">Unique Costumes</h4>
+              <p className="text-gray-600">One of the largest collections of theatrical and historical costumes in Israel</p>
+            </div>
+
+            <div className="relative bg-white p-10 rounded-lg shadow-xl transform transition-all duration-300 hover:-translate-y-2 text-center group">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2c1810] text-white flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+              </div>
+              <h3 className="text-4xl font-bold mb-3 text-[#8b4513]">4th Gen</h3>
+              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">Family Legacy</h4>
+              <p className="text-gray-600">Four generations of expertise in theatrical costume craftsmanship</p>
+            </div>
+
+            <div className="relative bg-white p-10 rounded-lg shadow-xl transform transition-all duration-300 hover:-translate-y-2 text-center group">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2c1810] text-white flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              </div>
+              <h3 className="text-4xl font-bold mb-3 text-[#8b4513]">500+</h3>
+              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">Productions</h4>
+              <p className="text-gray-600">Trusted by major theater companies, film studios, and television productions</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Value Cards */}
-      <section className="py-20">
+      {/* Process Section */}
+      <section 
+        ref={processRef}
+        className="py-16"
+      >
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            {t.home.valueCards.map((card, index) => (
-              <div
-                key={card.title}
-                className="p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300
-                          group relative overflow-hidden hover:-translate-y-1"
-              >
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-${index === 0 ? 'purple' : index === 1 ? 'yellow' : 'pink'}-50 rounded-bl-[100px] -z-10
-                                group-hover:scale-150 transition-transform duration-500`} />
-                <div className={`text-${index === 0 ? 'purple' : index === 1 ? 'yellow' : 'pink'}-600 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  {valueCardsIcons[index]}
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#2c1810]">{t.home.rental.title}</h2>
+          <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 ${
+            processVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-20'
+          }`}>
+            {t.home.rental.steps.map((step, index) => (
+              <div key={step.title} className="relative flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold mb-4">
+                  {index + 1}
                 </div>
-                <h2 className="text-2xl font-bold mb-3 text-gray-900">{card.title}</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">{card.text}</p>
+                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.text}</p>
+                {index < t.home.rental.steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-6 start-1/2 w-full border-t-2 border-dashed border-blue-200 -z-10" />
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      
-
-      {/* Rental Process */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">{t.home.rental.title}</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {enrichedSteps.map((step) => (
-              <div
-                key={step.title}
-                className="text-center p-8 bg-white rounded-xl shadow-lg hover:shadow-xl
-                          transition-all duration-300 hover:-translate-y-1 border-t-4 border-yellow-400 group"
+      {/* About Preview Section */}
+      <section 
+        ref={aboutRef}
+        className="py-24 bg-[#2c1810] text-white relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center transition-all duration-1000 ${
+            aboutVisible ? 'opacity-100 transform translate-x-0' : 'opacity-0 translate-x-20'
+          }`}>
+            <div>
+              <h2 className="text-5xl font-bold mb-8">{t.about.story.title}</h2>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                {t.about.story.text1}
+              </p>
+              <a
+                href="/about"
+                className="inline-block px-8 py-4 border-2 border-white text-white rounded-md hover:bg-white hover:text-[#2c1810] transition-all duration-300 transform hover:scale-105 text-lg"
               >
-                <div className="text-4xl mb-6 text-purple-600 group-hover:scale-110 transition-transform">
-                  {step.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-                <p className="text-gray-600 text-lg">{step.text}</p>
-              </div>
-            ))}
+                {t.nav.about}
+              </a>
+            </div>
+            <div className="relative rounded-lg overflow-hidden">
+              <Image
+                src="/images/20(1).jpeg"
+                alt="Our Story"
+                width={700}
+                height={525}
+                className="rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      
-    </>
+      {/* Photo Studio Experience */}
+      <section 
+        ref={projectsRef}
+        className="py-24 bg-[#f8f5f1] relative"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className={`relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-1000 ${
+            projectsVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-20'
+          }`}>
+            <div className="absolute inset-0">
+              <Image
+                src="/images/Studio/1477.JPG"
+                alt="Photo Studio Experience"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2c1810]/90 to-transparent" />
+            </div>
+            <div className="relative z-10 py-24 px-8 md:px-16 lg:px-24">
+              <div className="max-w-2xl">
+                <h2 className="text-5xl font-bold mb-6 text-white">{t.studio.title}</h2>
+                <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                  {t.studio.experience.desc}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                  {t.studio.experience.highlights.map((highlight, index) => (
+                    <div key={highlight.title} className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                      <h3 className="text-xl font-semibold mb-2 text-white">{highlight.title}</h3>
+                      <p className="text-gray-200">{highlight.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href="/studio"
+                  className="inline-block px-8 py-4 bg-[#8b4513] text-white rounded-md hover:bg-[#6b3410] transition-all duration-300 transform hover:scale-105 text-lg"
+                >
+                  {t.nav.studio}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -49,7 +49,7 @@ export default function Home() {
           <h1 className="text-7xl font-bold mb-8 text-white font-serif">
             {t.home.mainHeading}
           </h1>
-          <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-serif">
             {t.home.subHeading}
           </p>
           <div className="flex flex-wrap gap-6 justify-center">
@@ -68,7 +68,7 @@ export default function Home() {
               <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
               
               {/* Text */}
-              <span className="relative z-10 text-lg font-medium text-white">
+              <span className="relative z-10 text-2xl font-medium text-white font-serif">
                 {t.nav.gallery}
               </span>
             </a>
@@ -88,7 +88,7 @@ export default function Home() {
               <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
               
               {/* Text */}
-              <span className="relative z-10 text-lg font-medium text-white">
+              <span className="relative z-10 text-2xl font-medium text-white font-serif">
                 {t.nav.studio}
               </span>
             </a>
@@ -112,8 +112,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-4xl font-bold mb-3 font-serif text-[#8b4513]">{t.home.milestones.uniqueCostumes.number}</h3>
-              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">{t.home.milestones.uniqueCostumes.title}</h4>
-              <p className="text-gray-600">{t.home.milestones.uniqueCostumes.description}</p>
+              <h4 className="text-2xl font-semibold mb-4 text-[#2c1810] font-serif">{t.home.milestones.uniqueCostumes.title}</h4>
+              <p className="text-xl text-gray-600 font-serif leading-relaxed">{t.home.milestones.uniqueCostumes.description}</p>
             </div>
 
             <div className="relative bg-white p-10 rounded-lg shadow-xl transform transition-all duration-300 hover:-translate-y-2 text-center group">
@@ -123,8 +123,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-4xl font-bold mb-3 font-serif text-[#8b4513]">{t.home.milestones.legacy.number}</h3>
-              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">{t.home.milestones.legacy.title}</h4>
-              <p className="text-gray-600">{t.home.milestones.legacy.description}</p>
+              <h4 className="text-2xl font-semibold mb-4 text-[#2c1810] font-serif">{t.home.milestones.legacy.title}</h4>
+              <p className="text-xl text-gray-600 font-serif leading-relaxed">{t.home.milestones.legacy.description}</p>
             </div>
 
             <div className="relative bg-white p-10 rounded-lg shadow-xl transform transition-all duration-300 hover:-translate-y-2 text-center group">
@@ -134,8 +134,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-4xl font-bold mb-3 font-serif text-[#8b4513]">{t.home.milestones.productions.number}</h3>
-              <h4 className="text-xl font-semibold mb-4 text-[#2c1810]">{t.home.milestones.productions.title}</h4>
-              <p className="text-gray-600">{t.home.milestones.productions.description}</p>
+              <h4 className="text-2xl font-semibold mb-4 text-[#2c1810] font-serif">{t.home.milestones.productions.title}</h4>
+              <p className="text-xl text-gray-600 font-serif leading-relaxed">{t.home.milestones.productions.description}</p>
             </div>
           </div>
         </div>
@@ -156,8 +156,8 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold mb-4">
                   {index + 1}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.text}</p>
+                <h3 className="text-lg font-semibold mb-2 font-serif">{step.title}</h3>
+                <p className="text-xl text-gray-600 font-serif leading-relaxed">{step.text}</p>
                 {index < t.home.rental.steps.length - 1 && (
                   <div className="hidden lg:block absolute top-6 start-1/2 w-full border-t-2 border-dashed border-blue-200 -z-10" />
                 )}
@@ -178,7 +178,7 @@ export default function Home() {
           }`}>
             <div>
               <h2 className="text-5xl font-bold mb-8 font-serif">{t.about.story.title}</h2>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-2xl text-gray-300 mb-8 leading-relaxed font-serif">
                 {t.about.story.text1}
               </p>
               <a
@@ -195,7 +195,7 @@ export default function Home() {
                 <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-white to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
                 
                 {/* Text */}
-                <span className="relative z-10 text-lg font-medium text-white">
+                <span className="relative z-10 text-2xl font-medium text-white font-serif">
                   {t.nav.about}
                 </span>
               </a>
@@ -234,14 +234,14 @@ export default function Home() {
             <div className="relative z-10 py-24 px-8 md:px-16 lg:px-24">
               <div className="max-w-2xl">
                 <h2 className="text-5xl font-bold mb-6 text-white font-serif">{t.studio.title}</h2>
-                <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                <p className="text-2xl text-gray-200 mb-8 leading-relaxed font-serif">
                   {t.studio.experience.desc}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   {t.studio.experience.highlights.map((highlight, index) => (
                     <div key={highlight.title} className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-                      <h3 className="text-xl font-semibold mb-2 text-white">{highlight.title}</h3>
-                      <p className="text-gray-200">{highlight.desc}</p>
+                      <h3 className="text-2xl font-semibold mb-2 text-white font-serif">{highlight.title}</h3>
+                      <p className="text-lg text-gray-200 font-serif">{highlight.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -259,7 +259,7 @@ export default function Home() {
                   <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-white to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
                   
                   {/* Text */}
-                  <span className="relative z-10 text-lg font-medium text-white">
+                  <span className="relative z-10 text-2xl font-medium text-white font-serif">
                     {t.nav.studio}
                   </span>
                 </a>

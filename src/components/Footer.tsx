@@ -23,13 +23,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Navigation */}
           <nav className="space-y-4">
-            <h2 className="text-sm font-semibold text-white uppercase">{language === 'en' ? 'Navigation' : 'ניווט'}</h2>
+            <h2 className="text-lg font-semibold text-white uppercase font-serif">{language === 'en' ? 'Navigation' : 'ניווט'}</h2>
             <ul className="space-y-2">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 text-lg font-serif"
                   >
                     {item.name}
                   </Link>
@@ -40,10 +40,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-white uppercase">
+            <h2 className="text-lg font-semibold text-white uppercase font-serif">
               {language === 'en' ? 'Contact Us' : 'צור קשר'}
             </h2>
-            <div className="space-y-2 text-gray-300">
+            <div className="space-y-2 text-gray-300 text-lg font-serif">
               <p>{language === 'en' ? '236 Ben Yehuda St., Tel Aviv' : 'בן יהודה 236, תל אביב'}</p>
               <p>{language === 'en' ? 'Phone: ' : 'טלפון: '} 03-6047414</p>
               <p>{language === 'en' ? 'Email: ' : 'מייל: '} lev0121931@gmail.com</p>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div className="space-y-4">
-            <h2 className="text-sm font-semibold text-white uppercase">
+            <h2 className="text-lg font-semibold text-white uppercase font-serif">
               {language === 'en' ? 'Follow Us' : 'עקבו אחרינו'}
             </h2>
             <div className="flex space-x-4">
@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-[#4a2c1d]">
-          <p className="text-center text-gray-300">
+          <p className="text-center text-gray-300 text-lg font-serif">
             © {new Date().getFullYear()} {language === 'en' ? 'M-Lev Costume Design. All rights reserved.' : 'מ-לב תלבושות. כל הזכויות שמורות.'}
           </p>
         </div>

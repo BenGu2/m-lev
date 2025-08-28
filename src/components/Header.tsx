@@ -58,7 +58,7 @@ export default function Header() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-lg font-medium"
+                    className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-xl font-medium font-serif"
                   >
                     {item.name}
                   </Link>
@@ -86,7 +86,7 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-sm"
+              className="px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-lg font-serif"
               aria-label={`Switch to ${language === 'en' ? 'Hebrew' : 'English'}`}
             >
               {language === 'en' ? 'עב' : 'EN'}
@@ -131,7 +131,7 @@ export default function Header() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="block px-3 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+                    className="block px-3 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200 text-xl font-medium font-serif"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -143,7 +143,7 @@ export default function Header() {
                   href="https://wa.me/1234567890"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center px-3 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+                  className="flex items-center px-3 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200 text-xl font-medium font-serif"
                 >
                   <svg
                     className={`w-5 h-5 ${language === 'en' ? 'mr-2' : 'ml-2'}`}

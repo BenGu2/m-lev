@@ -28,6 +28,23 @@ export type TranslationText = {
         text: string;
       }>;
     };
+    milestones: {
+      uniqueCostumes: {
+        number: string;
+        title: string;
+        description: string;
+      };
+      legacy: {
+        number: string;
+        title: string;
+        description: string;
+      };
+      productions: {
+        number: string;
+        title: string;
+        description: string;
+      };
+    };
   };
   about: {
     title: string;
@@ -206,6 +223,23 @@ export const translations: Record<string, TranslationText> = {
             text: 'Return the costume in good condition'
           }
         ]
+      },
+      milestones: {
+        uniqueCostumes: {
+          number: "+10,000",
+          title: "Unique Costumes",
+          description: "Our extensive collection features more than 10,000 unique costumes"
+        },
+        legacy: {
+          number: "4th Generation",
+          title: "Years of Legacy",
+          description: "A family tradition of costume craftsmanship spanning generations"
+        },
+        productions: {
+          number: "+500",
+          title: "Theater Productions",
+          description: "Serving countless successful productions across Israel"
+        }
       }
     },
     about: {
@@ -424,6 +458,23 @@ export const translations: Record<string, TranslationText> = {
             text: 'החזירו את התלבושת במצב טוב'
           }
         ]
+      },
+      milestones: {
+        uniqueCostumes: {
+          number: "10,000+",
+          title: "תלבושות ייחודיות",
+          description: "אחד מהאוספים הגדולים ביותר של תלבושות תיאטרון והיסטוריה בישראל"
+        },
+        legacy: {
+          number: "דור 4",
+          title: "מורשת משפחתית",
+          description: "ארבעה דורות של מומחיות באומנות תפירת תלבושות תיאטרון"
+        },
+        productions: {
+          number: "500+",
+          title: "הפקות",
+          description: "זוכים לאמון של חברות תיאטרון מובילות, אולפני סרטים והפקות טלוויזיה"
+        }
       }
     },
     about: {

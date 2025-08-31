@@ -75,53 +75,64 @@ export default function CategoryPage() {
 
   return (
     <>
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{name}</h1>
-          <p className="text-xl text-gray-600">{description}</p>
-        </div>
-
-        {isLoading ? (
-          <div className="text-center py-12">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+      <main className="min-h-screen bg-[#f8f5f1]">
+        {/* Category Hero Section */}
+        <section className="relative py-24 bg-[#2c1810] text-white overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
           </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedImages.map((filename: string, index: number) => (
-              <div
-                key={`${filename}-${index}`}
-                className="aspect-[3/4] relative rounded-xl overflow-hidden bg-gray-100 group cursor-pointer"
-                onClick={() => setSelectedImage(`/images/${folder}/${filename}`)}
-              >
-                <Image
-                  src={`/images/${folder}/${filename}`}
-                  alt={`${name} costume ${index + 1}`}
-                  fill
-                  loading="lazy"
-                  quality={75}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+          <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <h1 className="text-6xl font-bold mb-8 font-serif">{name}</h1>
+            <p className="text-2xl text-gray-200 font-serif leading-relaxed">{description}</p>
+          </div>
+        </section>
+
+        {/* Gallery Grid Section */}
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-4">
+            {isLoading ? (
+              <div className="text-center py-12">
+                <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-[#2c1810] border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
               </div>
-            ))}
-          </div>
-        )}
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {displayedImages.map((filename: string, index: number) => (
+                  <div
+                    key={`${filename}-${index}`}
+                    className="aspect-[3/4] relative rounded-xl overflow-hidden bg-[#2c1810]/5 group cursor-pointer shadow-xl transform transition-all duration-500 hover:-translate-y-2"
+                    onClick={() => setSelectedImage(`/images/${folder}/${filename}`)}
+                  >
+                    <Image
+                      src={`/images/${folder}/${filename}`}
+                      alt={`${name} costume ${index + 1}`}
+                      fill
+                      loading="lazy"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2c1810]/60 via-[#2c1810]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                ))}
+              </div>
+            )}
 
-        {hasMore && !isLoading && (
-          <div 
-            ref={elementRef}
-            className="text-center py-12"
-          >
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+            {/* Load More Trigger */}
+            {hasMore && !isLoading && (
+              <div 
+                ref={elementRef}
+                className="h-20 flex items-center justify-center mt-8"
+              >
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#2c1810] border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </section>
+      </main>
 
+      {/* Image Modal */}
       {selectedImage && (
         <ImageModal
           src={selectedImage}
-          alt="Enlarged costume view"
+          alt={`${name} costume`}
           onClose={() => setSelectedImage(null)}
         />
       )}

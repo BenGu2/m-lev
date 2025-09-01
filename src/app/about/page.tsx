@@ -3,11 +3,13 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { translations } from '@/constants/translations';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 
 export default function AboutPage() {
   const { language } = useLanguage();
   const t = translations[language];
+  const { elementRef: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   // Add intersection observer hook for animations
   const useInView = (options = {}) => {
@@ -32,6 +34,14 @@ export default function AboutPage() {
 
     return [setRef, inView] as const;
   };
+
+  // Timeline animation refs
+  const [setTimelineRef1, isTimelineVisible1] = useInView();
+  const [setTimelineRef2, isTimelineVisible2] = useInView();
+  const [setTimelineRef3, isTimelineVisible3] = useInView();
+  const [setTimelineRef4, isTimelineVisible4] = useInView();
+  const [setTimelineRef5, isTimelineVisible5] = useInView();
+  const [setTimelineRef6, isTimelineVisible6] = useInView();
 
   const timelineMilestones = [
     {
@@ -71,7 +81,9 @@ export default function AboutPage() {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
-        <div className="max-w-7xl mx-auto px-4">
+        <div ref={titleRef} className={`container mx-auto px-4 transition-all duration-1000 ${
+          titleVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+        }`}>
           <h1 className="text-7xl font-bold text-center mb-8 font-serif">{t.about.title}</h1>
         </div>
       </section>

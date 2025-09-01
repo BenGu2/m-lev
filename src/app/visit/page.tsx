@@ -2,19 +2,26 @@
 
 import { useLanguage } from '@/components/LanguageProvider';
 import { translations } from '@/constants/translations';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function VisitPage() {
   const { language } = useLanguage();
   const t = translations[language];
+  const { elementRef: headerRef, isIntersecting: headerVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <>
       {/* Title */}
-      <section className="py-24 bg-[#2c1810] text-white">
+      <section 
+        ref={headerRef}
+        className="py-24 bg-[#2c1810] text-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
-        <div className="container mx-auto px-4">
+        <div className={`container mx-auto px-4 relative z-10 transition-all duration-1000 ${
+          headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+        }`}>
           <h1 className="text-7xl font-bold text-center mb-8 font-serif">{t.visit.title}</h1>
           <p className="text-3xl text-gray-300 text-center max-w-3xl mx-auto font-serif leading-relaxed">
             {t.visit.intro}

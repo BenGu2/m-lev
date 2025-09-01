@@ -6,6 +6,7 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { translations } from '@/constants/translations';
 import { Carousel } from '@/components/Carousel';
 import ImageModal from '@/components/ImageModal';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const studioCarouselImages = ['1477.JPG', '1807.JPG', '1869.JPG', '1810.JPG', '1473.JPG', '1469.JPG'];
 
@@ -13,14 +14,23 @@ export default function StudioPage() {
   const { language } = useLanguage();
   const t = translations[language];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { elementRef: headerRef, isIntersecting: headerVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <>
       {/* Title and Intro */}
-      <section className="py-24 bg-[#2c1810] text-white">
-        <div className="container mx-auto px-4">
+      <section 
+        ref={headerRef}
+        className="py-24 bg-[#2c1810] text-white relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
+        </div>
+        <div className={`container mx-auto px-4 relative z-10 transition-all duration-1000 ${
+          headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+        }`}>
           <h1 className="text-7xl font-bold text-center mb-12 font-serif">{t.studio.title}</h1>
-          <div className="max-w-5xl mx-auto mb-12"> {/* Added max width constraint for carousel */}
+          <div className="max-w-5xl mx-auto mb-12">
             <Carousel images={studioCarouselImages} />
           </div>
           <p className="text-3xl text-gray-300 text-center max-w-3xl mx-auto font-serif leading-relaxed">

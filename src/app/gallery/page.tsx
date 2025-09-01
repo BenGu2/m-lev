@@ -4,19 +4,26 @@ import Link from 'next/link';
 import { useLanguage } from '@/components/LanguageProvider';
 import { translations } from '@/constants/translations';
 import { categories, categoryTranslations } from '@/constants/galleryData';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function GalleryPage() {
   const { language } = useLanguage();
   const t = translations[language];
+  const { elementRef: headerRef, isIntersecting: headerVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <main className="min-h-screen bg-[#f8f5f1]">
       {/* Hero Section */}
-      <section className="relative py-24 bg-[#2c1810] text-white overflow-hidden">
+      <section 
+        ref={headerRef}
+        className="relative py-24 bg-[#2c1810] text-white overflow-hidden"
+      >
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
-        <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
+        <div className={`max-w-4xl mx-auto text-center px-4 relative z-10 transition-all duration-1000 ${
+          headerVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+        }`}>
           <h1 className="text-7xl font-bold mb-8 font-serif">{t.gallery.title}</h1>
           <p className="text-3xl text-gray-300 font-serif leading-relaxed">
             {t.gallery.intro}

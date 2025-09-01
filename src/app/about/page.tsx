@@ -72,7 +72,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-6xl font-bold text-center mb-8 font-serif">{t.about.title}</h1>
+          <h1 className="text-7xl font-bold text-center mb-8 font-serif">{t.about.title}</h1>
         </div>
       </section>
 
@@ -82,12 +82,12 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="md:w-2/3 order-2 md:order-1">
               <div className="space-y-8">
-                <p className="text-2xl text-gray-700 font-serif leading-relaxed">
+                <p className="text-2xl text-[#2c1810] font-serif leading-relaxed">
                   {language === 'he'
                     ? 'מחסן לב הינו מחסן תחפושות והשכרת תלבושות אשר נוסד בשנות ה-50 בתל אביב. ע"י לב לוריא ז"ל מוותיקי תיאטרון "האוהל", שהחל דרכו בהשאלת תלבושות ואביזרים לתיאטראות בישראל.'
                     : 'M-Lev is a costume house and rental service established in the 1950s in Tel Aviv. Founded by the late Lev Luria, a veteran of "HaOhel" Theater, who began by lending costumes and accessories to theaters across Israel.'}
                 </p>
-                <p className="text-2xl text-gray-700 font-serif leading-relaxed">
+                <p className="text-2xl text-[#2c1810] font-serif leading-relaxed">
                   {language === 'he'
                     ? 'משנות ה-70 מנוהל העסק ע"י אברהם לוריא, בנו של לב. גם הוא מוותיקי המפיקים והאמרגנים בארץ. מאז המחסן גדל והתרחב ולאוסף הנדיר מתווספים מדי יום עשרות פריטים אותנטיים חדשים. כיום שותפות לניהול המחסן גם הנכדה והנינה, שהיא דור רביעי למייסדים.'
                     : 'Since the 1970s, the business has been managed by Avraham Luria, Lev\'s son and a veteran producer and impresario. The warehouse has grown significantly, with new authentic items added daily. Today, the granddaughter and great-granddaughter, representing the fourth generation, are also partners in managing the warehouse.'}
@@ -196,12 +196,10 @@ export default function AboutPage() {
                       <div className="w-[45%]">
                         {index % 2 === 0 && (
                           <div className="bg-[#f8f5f1] p-8 rounded-lg shadow-xl border border-[#8b4513]/20 mr-8 transform transition-all duration-500 hover:-translate-y-1">
-                            <h3 className="text-2xl font-semibold mb-4 text-[#2c1810] font-serif">
+                            <h3 className="text-3xl font-bold mb-4 text-[#2c1810] font-serif">
                               {milestone.title}
                             </h3>
-                            <p className="text-xl text-gray-700 leading-relaxed font-serif">
-                              {milestone.text}
-                            </p>
+                            <p className="text-xl text-[#8b4513] font-serif leading-relaxed">{milestone.text}</p>
                           </div>
                         )}
                       </div>
@@ -213,12 +211,10 @@ export default function AboutPage() {
                       <div className="w-[45%]">
                         {index % 2 === 1 && (
                           <div className="bg-[#f8f5f1] p-8 rounded-lg shadow-xl border border-[#8b4513]/20 ml-8 transform transition-all duration-500 hover:-translate-y-1">
-                            <h3 className="text-2xl font-semibold mb-4 text-[#2c1810] font-serif">
+                            <h3 className="text-3xl font-bold mb-4 text-[#2c1810] font-serif">
                               {milestone.title}
                             </h3>
-                            <p className="text-xl text-gray-700 leading-relaxed font-serif">
-                              {milestone.text}
-                            </p>
+                            <p className="text-xl text-[#8b4513] font-serif leading-relaxed">{milestone.text}</p>
                           </div>
                         )}
                       </div>

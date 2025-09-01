@@ -17,8 +17,8 @@ export default function GalleryPage() {
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
         <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
-          <h1 className="text-6xl font-bold mb-8 font-serif">{t.gallery.title}</h1>
-          <p className="text-2xl text-gray-200 font-serif leading-relaxed">
+          <h1 className="text-7xl font-bold mb-8 font-serif">{t.gallery.title}</h1>
+          <p className="text-3xl text-gray-300 font-serif leading-relaxed">
             {t.gallery.intro}
           </p>
         </div>
@@ -44,10 +44,10 @@ export default function GalleryPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2c1810]/90 via-[#2c1810]/50 to-transparent transition-opacity duration-300"></div>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[#2c1810]/20 transition-opacity duration-300"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform transition-all duration-500">
-                  <h3 className="text-3xl font-bold mb-4 font-serif group-hover:translate-x-2">
+                  <h3 className="text-4xl font-bold mb-4 font-serif group-hover:translate-x-2">
                     {categoryTranslations[language][category.id].name}
                   </h3>
-                  <p className="text-xl text-gray-200 font-serif group-hover:translate-x-2 transition-transform duration-300 delay-75">
+                  <p className="text-2xl text-gray-200 font-serif group-hover:translate-x-2 transition-transform duration-300 delay-75">
                     {categoryTranslations[language][category.id].description}
                   </p>
                 </div>

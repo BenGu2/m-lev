@@ -82,8 +82,8 @@ export default function CategoryPage() {
             <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
           </div>
           <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
-            <h1 className="text-6xl font-bold mb-8 font-serif">{name}</h1>
-            <p className="text-2xl text-gray-200 font-serif leading-relaxed">{description}</p>
+            <h1 className="text-7xl font-bold mb-8 font-serif">{name}</h1>
+            <p className="text-3xl text-gray-300 font-serif leading-relaxed">{description}</p>
           </div>
         </section>
 

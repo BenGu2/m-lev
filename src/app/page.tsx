@@ -227,11 +227,10 @@ export default function Home() {
             projectsVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-20'
           }`}>
             <div className="absolute inset-0">
-              <Image
-                src="/images/Studio/1477.JPG"
-                alt="Photo Studio Experience"
-                fill
-                className="object-cover object-center"
+              <Image              src="/images/Studio/S017.JPG"
+              alt="Photo Studio Experience"
+              fill
+              className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-l from-[#2c1810]/90 to-transparent" />
             </div>

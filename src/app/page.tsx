@@ -26,72 +26,76 @@ export default function Home() {
       {/* Hero Section with Logo Overlay */}
       <section 
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[120vh] flex items-start justify-center pt-4 md:pt-8 lg:pt-12 overflow-hidden"
       >
         <div className="absolute inset-0">
           <Image
             src="/images/224.JPG"
             alt="Costume Workshop"
             fill
-            className="object-cover"
+            className="object-cover object-[center_10%]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#2c1810]/90 to-[#4a2c1d]/90" />
         </div>
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/images/mlevlogo.png')] bg-center bg-no-repeat bg-contain opacity-30 transform scale-150 blur-sm" />
         </div>
-        
         {/* Main content */}
-        <div className={`relative z-10 text-center transition-all duration-1000 px-4 ${
-          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
-        }`}>
-          <h1 className="text-7xl font-bold mb-8 text-white font-serif">
-            {t.home.mainHeading}
-          </h1>
-          <p className="text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-serif">
-            {t.home.subHeading}
-          </p>
-          <div className="flex flex-wrap gap-6 justify-center">
-            {/* Gallery Button */}
-            <a
-              href="/gallery"
-              className="group relative inline-flex px-8 py-4 rounded-lg overflow-hidden"
+        <div className={`relative z-10 text-center transition-all duration-1000 px-4 
+          ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'}
+        `}>
+          {/* Soft gradient behind text for readability, not a box */}
+          <div className="absolute inset-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" style={{background: 'linear-gradient(180deg, rgba(44,24,16,0.10) 0%, rgba(44,24,16,0.05) 60%, rgba(44,24,16,0.0) 100%)'}} />
+          <div className="relative inline-block max-w-4xl mx-auto p-8">
+            <h1
+              className="text-7xl font-bold mb-8 text-white font-serif drop-shadow-[0_6px_24px_rgba(0,0,0,0.95)] drop-shadow-[0_2px_0_rgba(44,24,16,0.5)]"
+              style={{ WebkitTextStroke: '1px #2c1810' }}
             >
-              {/* Main background */}
-              <span className="absolute inset-0 bg-[#2c1810] transition-all duration-300 group-hover:bg-[#3a2218]" />
-              
-              {/* Animated borders */}
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              <span className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
-              <span className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[100%] group-hover:translate-x-[-100%] transition-transform duration-1000" />
-              <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
-              
-              {/* Text */}
-              <span className="relative z-10 text-2xl font-medium text-white font-serif">
-                {t.nav.gallery}
-              </span>
-            </a>
-
-            {/* Studio Button */}
-            <a
-              href="/studio"
-              className="group relative inline-flex px-8 py-4 rounded-lg overflow-hidden"
+              {t.home.mainHeading}
+            </h1>
+            <p
+              className="text-3xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] drop-shadow-[0_1px_0_rgba(44,24,16,0.4)]"
+              style={{ WebkitTextStroke: '0.5px #2c1810' }}
             >
-              {/* Main background */}
-              <span className="absolute inset-0 bg-[#2c1810] transition-all duration-300 group-hover:bg-[#3a2218]" />
-              
-              {/* Animated borders */}
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              <span className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
-              <span className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[100%] group-hover:translate-x-[-100%] transition-transform duration-1000" />
-              <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
-              
-              {/* Text */}
-              <span className="relative z-10 text-2xl font-medium text-white font-serif">
-                {t.nav.studio}
-              </span>
-            </a>
+              {t.home.subHeading}
+            </p>
+            {/* Buttons directly under the text, centered as at the start */}
+            <div className="flex flex-wrap gap-x-64 gap-y-8 mt-8 justify-center">
+              {/* Gallery Button */}
+              <a
+                href="/gallery"
+                className="group relative inline-flex px-8 py-4 rounded-lg overflow-hidden bg-black/70 border border-white/30 shadow-lg"
+              >
+                {/* Main background */}
+                <span className="absolute inset-0 bg-[#2c1810] opacity-80 transition-all duration-300 group-hover:bg-[#3a2218] group-hover:opacity-100 rounded-lg" />
+                {/* Animated borders */}
+                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                <span className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
+                <span className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[100%] group-hover:translate-x-[-100%] transition-transform duration-1000" />
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
+                {/* Text */}
+                <span className="relative z-10 text-2xl font-medium text-white font-serif drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+                  {t.nav.gallery}
+                </span>
+              </a>
+              {/* Studio Button */}
+              <a
+                href="/studio"
+                className="group relative inline-flex px-8 py-4 rounded-lg overflow-hidden bg-black/70 border border-white/30 shadow-lg"
+              >
+                {/* Main background */}
+                <span className="absolute inset-0 bg-[#2c1810] opacity-80 transition-all duration-300 group-hover:bg-[#3a2218] group-hover:opacity-100 rounded-lg" />
+                {/* Animated borders */}
+                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                <span className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000" />
+                <span className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#e8d5b8] to-transparent transform translate-x-[100%] group-hover:translate-x-[-100%] transition-transform duration-1000" />
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-[#e8d5b8] to-transparent transform translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-1000" />
+                {/* Text */}
+                <span className="relative z-10 text-2xl font-medium text-white font-serif drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+                  {t.nav.studio}
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

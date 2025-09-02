@@ -54,7 +54,7 @@ export default function Home() {
               {t.home.mainHeading}
             </h1>
             <p
-              className="text-3xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] drop-shadow-[0_1px_0_rgba(44,24,16,0.4)]"
+              className="text-4xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] drop-shadow-[0_1px_0_rgba(44,24,16,0.4)]"
               style={{ WebkitTextStroke: '0.5px #2c1810' }}
             >
               {t.home.subHeading}
